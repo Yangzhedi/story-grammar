@@ -1,4 +1,4 @@
-Use Names text/firstnames.txt
+Use Names text/chinesenames.txt
 Use Adjectives text/adjectives.txt
 Use Objects text/objects.txt
 
@@ -9,16 +9,16 @@ Introduction
   AtFirst Describe
 
 AtFirst
-  "Once upon a time, there was a hero named " Names.Protagonist ". "
+  "很久很久以前，有一个人叫做" Names.Protagonist ". "
 
 Describe
-  Names.Protagonist " was a " Adjectives.ProtagonistAdjective " fighter. "
-  Names.Protagonist " was a " Adjectives.ProtagonistAdjective " warrior. "
+  Names.Protagonist " 是一个" Adjectives.ProtagonistAdjective " 的战士. "
+  Names.Protagonist " 是一个" Adjectives.ProtagonistAdjective " 的勇士. "
 
 Middle
-  "Then " Names.Protagonist " went for a " Adjectives.ProtagonistAdjective " walk. "
+  "Then " Names.Protagonist " 去了一个 " Adjectives.ProtagonistAdjective " 旅行. "
 
 End
-  "And " Names.Protagonist " died. "
+  "然后 " Names.Protagonist " 立了个flag，就踏马死掉了 "
 
 Generate Story

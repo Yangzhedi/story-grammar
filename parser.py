@@ -87,7 +87,7 @@ def getVariable( token, variables, lists ):
     if var_id not in variables[var_list]:
         variables[var_list][var_id] = random.choice( lists[var_list] )
         if VERBOSE:
-            print 'Setting ' + var_id + ' (' + var_list + ') to value ' + variables[var_list][var_id]
+            print 'Setting ' + var_id + ' (' + var_list + ') to value ' + variables[var_list][var_id].decode("utf-8")
 
     return variables[var_list][var_id]
 
@@ -141,4 +141,13 @@ if __name__ == "__main__":
     ( story_generate, story_lists, story_rules ) = parse( story )
     result = generate( story_generate, story_lists, story_rules, {} )
 
-    print( result )
+    # add Chinese support
+    print result.decode("utf-8")
+
+    f = open('./'+input_filename.split('/')[1]+'','wb')
+    f.write(result)
+    f.close()
+
+    f = open('./'+input_filename.split('/')[1]+'', "r")
+    line = f.readline().decode("utf-8")
+    print line
