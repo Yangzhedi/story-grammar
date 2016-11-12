@@ -1,7 +1,9 @@
-# story-grammar
-A grammar for generating stories, inspired by [NaNoGenMo 2016](https://github.com/NaNoGenMo/2016/).
+# story-grammar in Chinese
+以下只是原README的简单翻译：
 
-## Getting Started
+一个可以用来生成故事的语法, 灵感来自 [NaNoGenMo 2016](https://github.com/NaNoGenMo/2016/).
+
+## 开始
 You can start using the story grammar scripts immediately. Feel free to clone the repository, and run `python parser.py <input_filename>`.
 
 For example,
@@ -13,19 +15,19 @@ For example,
 You should see something like this:
 
     Starting rule: ['Story']
-    Setting Protagonist (Names) to value Laura
-    Setting ProtagonistAdjective (Adjectives) to value scary
-    Once upon a time, there was a hero named Laura. Laura was a scary fighter. Then Laura went for a scary walk. And Laura died.
+    Setting Protagonist (chineseNames) to value 巫师
+    Setting ProtagonistAdjective (chineseAdjectives) to value 尖叫的
+    很久很久以前，有一个人叫做巫师. 巫师是一个尖叫的的战士. 接着巫师 了一个尖叫的旅行. 然后巫师就很快死掉了
 
 Pretty scary stuff!
 
-## How it Works
+## 工作原理
 
-### Rules
+### 规则
 
-The story generator uses a simple rule-based grammar to describe a story. Stories are composed of atomic rules that are composed together using other rules, then built into a story by choosing one rule to rule them all.
+这个故事生成器用了一个简单的 基于规则的语法 来描述一个故事。故事是由 一些由其他规则组成的细小的规则 一起构成的, 然后选择一个规则统一别的规则来建立一个故事.
 
-Each rule is a single word (also called a token) at the beginning of a new line. The next line (or lines, as we'll see) are the various forms of the rule. For example, if you're greeting somebody, you might say `Hi!`, or `Hello!`, or even `How are you?`. In our grammar, we might represent that as follows:
+在每一个新一行的开始，每个规则都是一个单词（或者称为令牌）. 下一行或下几行， 都是各种形式的规则。 举个例子， 如果你在某人打招呼， 你可能会说 `Hi!`, or `Hello!`, or even `How are you?`。 在我们的语法中，我们可能用以下形式来代表：
 
     Greeting
       "Hi!"
@@ -40,22 +42,23 @@ Things get interesting when we consider that rules can also be made up from othe
       Beginning End
 
     Beginning
-      "The cat "
-      "The dog "
+      "阿猫 "
+      "阿狗 "
 
     End
-      "was nice."
-      "was happy."
+      "很好。"
+      "很开心。"
 
 If we use `Story` as the "starting" rule, like `Greeting` in the previous example, we see that a `Story` is made up from a `Beginning` and an `End`. There are two possible beginnings, and two possible endings. If this was our story generator, we would see stories like this:
 
-    The dog was happy.
-    The cat was happy.
-    The cat was nice.
+    阿猫 很好。
+    阿狗 很好。
+    阿猫 很开心。
+    阿狗 很开心。
 
-I'm sure you'll agree, those are lovely stories.
+我相信你会同意的，这些都是可爱的故事。
 
-### The Generate command
+### 生成命令
 
 To use this in our story generator, we just need one more piece. We've talked about using `Story` as our main rule, so we just need to make sure the generator knows what we're thinking. If we start a new line with the word (or token) `Generate`, we'll be able to inform the program how to write stories using our friendly grammar.
 
