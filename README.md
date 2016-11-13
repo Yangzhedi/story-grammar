@@ -4,15 +4,15 @@
 一个可以用来生成故事的语法, 灵感来自 [NaNoGenMo 2016](https://github.com/NaNoGenMo/2016/).
 
 ## 开始
-You can start using the story grammar scripts immediately. Feel free to clone the repository, and run `python parser.py <input_filename>`.
+你可以很快的就开始使用生成故事 脚本。 可以 clone the repository, 再 run `python parser.py <input_filename>`.
 
-For example,
+举个例子,
 
-    git clone https://github.com/scotchfield/story-grammar.git
+    git clone https://github.com/Yangzhedi/story-grammar.git
     cd story-grammar
     python parser.py stories/simple.txt
 
-You should see something like this:
+你应该会在cmd中看到这样的提示:
 
     Starting rule: ['Story']
     Setting Protagonist (chineseNames) to value 巫师
@@ -34,9 +34,9 @@ Pretty scary stuff!
       "Hello!"
       "How are you?"
 
-If we want to indicate that a greeting can be one of three static responses, we wrap that text inside of double-quotes. Each line is a new form that the rule could take. If we generate a greeting, our rule gives us one of three possible responses.
+如果我们想表达一句问候，就可以用以上三个静态的响应之一，我们总结了双引号内的文本。如果我们生成一句问候，我们的规则给与我们这三个可能的响应。
 
-Things get interesting when we consider that rules can also be made up from other rules. For example, consider this:
+当我们把规则变成由其他规则一起组成的时候，故事就开始变得有趣了起来了。 举个例子，看看这个：
 
     Story
       Beginning End
@@ -49,7 +49,7 @@ Things get interesting when we consider that rules can also be made up from othe
       "很好。"
       "很开心。"
 
-If we use `Story` as the "starting" rule, like `Greeting` in the previous example, we see that a `Story` is made up from a `Beginning` and an `End`. There are two possible beginnings, and two possible endings. If this was our story generator, we would see stories like this:
+如果我们用`Story`作为“starting”的规则， 就像 `Greeting` 在前面的例子中一样。 我们看到一个 `Story` 室由一个 `Beginning` 和一个 `End` 组成的。有两个可能的beginnings，和两个可能的endings。如果这就是我们的故事生成器，我们就可以看到这样的故事：
 
     阿猫 很好。
     阿狗 很好。
@@ -60,7 +60,7 @@ If we use `Story` as the "starting" rule, like `Greeting` in the previous exampl
 
 ### 生成命令
 
-To use this in our story generator, we just need one more piece. We've talked about using `Story` as our main rule, so we just need to make sure the generator knows what we're thinking. If we start a new line with the word (or token) `Generate`, we'll be able to inform the program how to write stories using our friendly grammar.
+如果在我们的故事生成器中使用这个，我们就需要更多的片段。 我们讨论过使用 `Story` 作为我们的主规则, 所以我们只需要确保 生成器 知道我们在想什么。 If we start a new line with the word (or token) `Generate`, we'll be able to inform the program how to write stories using our friendly grammar.
 
     Generate Story
 
